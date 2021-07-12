@@ -1,9 +1,9 @@
 package br.com.zup.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,16 +22,9 @@ public class ListaEmpresasServlet extends HttpServlet {
 		Banco banco = new Banco();
 		List<Empresa> empresas = banco.getEmpresas();
 		
-		String html = "<html><body><ul>";
-		
-		for (Empresa empresa : empresas) {
-			html = html.concat("<li>" + empresa.getNome() + "</li>");
-		}
-		
-		html = html.concat("</ul></body></html>");
-		
-		PrintWriter out = response.getWriter();
-		out.println(html);
+		request.setAttribute("empresas", empresas);
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
+		rd.forward(request, response);
 	}
 
 }
