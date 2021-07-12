@@ -1,4 +1,4 @@
-package br.com.zup.gerenciador.serlet;
+package br.com.zup.gerenciador.servlet;
 
 import java.io.IOException;
 
