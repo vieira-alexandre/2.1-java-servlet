@@ -14,15 +14,26 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.zup.gerenciador.model.Banco;
 import br.com.zup.gerenciador.model.Empresa;
 
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/editaEmpresa")
+public class EditaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomeEmpresa = request.getParameter("nome");
+		String paramId = request.getParameter("id");
+		String nome = request.getParameter("nome");
 		String paramDataAbertura = request.getParameter("data");
 		
+		Integer id = null;
 		Date dataAbertura = null;
+		
+		try {
+			id = Integer.valueOf(paramId);
+		} 
+		catch(NumberFormatException e) {
+			throw new ServletException(e);
+		}
+		
 		
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -31,21 +42,12 @@ public class NovaEmpresaServlet extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
+		Banco banco = new Banco();
 		
-		
-		Empresa empresa = new Empresa();
-		empresa.setNome(nomeEmpresa);
+		Empresa empresa = banco.buscaPorId(id);
+		empresa.setNome(nome);
 		empresa.setDataAbertura(dataAbertura);
 		
-		Banco banco = new Banco();
-		banco.adiciona(empresa);
-		
-		request.setAttribute("nomeEmpresa", nomeEmpresa);
 		response.sendRedirect("listaEmpresas");
-		
-//		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
-//		request.setAttribute("nomeEmpresa", nomeEmpresa);
-//		rd.forward(request, response);
 	}
-
 }
