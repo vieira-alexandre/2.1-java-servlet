@@ -1,0 +1,33 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="teste">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>br.com.alura.jpa.model.Aluno</class>
+		<class>br.com.alura.jpa.model.AutoCorrecao</class>
+		<class>br.com.alura.jpa.model.Avaliacao</class>
+		<class>br.com.alura.jpa.model.RespostaAluno</class>
+		<class>br.com.alura.jpa.model.RespostaMentor</class>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost/jpa?serverTimezone=UTC" />
+			<property name="javax.persistence.jdbc.user" value="alex" />
+			<property name="javax.persistence.jdbc.password"
+				value="alex" />
+
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL8Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
