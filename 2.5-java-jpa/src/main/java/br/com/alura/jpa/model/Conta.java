@@ -12,7 +12,6 @@ public class Conta {
 	private Long id;
 	private Integer agencia;
 	private Integer numero;
-	private String titular;
 	private Double saldo;
 
 	public Long getId() {
@@ -37,14 +36,6 @@ public class Conta {
 
 	public void setNumero(Integer numero) {
 		this.numero = numero;
-	}
-
-	public String getTitular() {
-		return titular;
-	}
-
-	public void setTitular(String titular) {
-		this.titular = titular;
 	}
 
 	public Double getSaldo() {

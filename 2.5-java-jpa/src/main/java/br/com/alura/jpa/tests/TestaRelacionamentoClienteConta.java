@@ -7,11 +7,10 @@ import javax.persistence.Persistence;
 import br.com.alura.jpa.model.Cliente;
 import br.com.alura.jpa.model.Conta;
 
-public class CriaConta {
+public class TestaRelacionamentoClienteConta {
 	public static void main(String[] args) {
 		Conta conta = new Conta();
-		conta.setAgencia(1001);
-		conta.setNumero(441019);
+		conta.setId(1L);
 
 		Cliente cliente = new Cliente();
 		cliente.setNome("Alexandre");
@@ -24,7 +23,6 @@ public class CriaConta {
 
 		em.getTransaction().begin();
 
-		em.persist(conta);
 		em.persist(cliente);
 
 		em.getTransaction().commit();
