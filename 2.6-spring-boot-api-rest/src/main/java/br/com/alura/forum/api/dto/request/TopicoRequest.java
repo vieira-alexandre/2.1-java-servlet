@@ -17,7 +17,7 @@ public class TopicoRequest {
     @NotBlank  @Length(min = 10)
     private String mensagem;
 
-    @NotBlank @Length(min = 10, max = 255)
+    @NotBlank @Length(min = 5, max = 255)
     private String nomeCurso;
 
     public String getTitulo() {
