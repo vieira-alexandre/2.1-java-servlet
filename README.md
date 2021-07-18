@@ -12,3 +12,11 @@
 - Mapeamento de Entidades
 - Relacionamentos
 - JPQL
+
+### 2.6 - Spring Boot API REST: Construa uma API
+- Controller, endpoints, GET e DTO
+- Spring Data
+- POST
+- Bean Validation
+- Exception Handling
+- PUT, DELETE e Status 404
