@@ -3,12 +3,21 @@ package br.com.alura.forum.api.dto.request;
 import br.com.alura.forum.modelo.entities.Curso;
 import br.com.alura.forum.modelo.entities.Topico;
 import br.com.alura.forum.modelo.repositories.CursoRepository;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.constraints.NotBlank;
+
 public class TopicoRequest {
+
+    @NotBlank @Length(min = 5, max = 255)
     private String titulo;
+
+    @NotBlank  @Length(min = 10)
     private String mensagem;
+
+    @NotBlank @Length(min = 10, max = 255)
     private String nomeCurso;
 
     public String getTitulo() {
