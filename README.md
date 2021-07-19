@@ -24,3 +24,4 @@
 ### 2.7 - Spring Boot API REST: Segurança da API, Cache e Monitoramento
 - Paginação e Ordenação
 - Spring Cache
+- Spring Security, Autorização de Endpoints, Autenticação via FormLogin
