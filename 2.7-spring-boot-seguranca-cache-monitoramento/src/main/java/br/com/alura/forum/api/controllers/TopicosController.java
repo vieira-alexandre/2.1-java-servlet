@@ -7,7 +7,10 @@ import br.com.alura.forum.api.dto.response.TopicoResponse;
 import br.com.alura.forum.modelo.entities.Topico;
 import br.com.alura.forum.modelo.repositories.CursoRepository;
 import br.com.alura.forum.modelo.repositories.TopicoRepository;
+import br.com.alura.forum.values.CacheId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -32,6 +35,7 @@ public class TopicosController {
     private CursoRepository cursoRepository;
 
     @GetMapping
+    @Cacheable(value = CacheId.LISTA_DE_TOPICOS)
     public Page<TopicoResponse> lista(@RequestParam(required = false) String nomeCurso,
                                       @PageableDefault(sort = "dataCriacao", direction = Sort.Direction.DESC,
                                               size = 5) Pageable paginacao) {
@@ -49,6 +53,7 @@ public class TopicosController {
 
     @PostMapping
     @Transactional
+    @CacheEvict(value = CacheId.LISTA_DE_TOPICOS, allEntries = true)
     public ResponseEntity<TopicoResponse> cadastrar(@RequestBody @Valid TopicoRequest topicoRequest) {
         Topico topico = topicoRequest.converter(cursoRepository);
         repository.save(topico);
@@ -70,6 +75,7 @@ public class TopicosController {
 
     @PutMapping("/{id}")
     @Transactional
+    @CacheEvict(value = CacheId.LISTA_DE_TOPICOS, allEntries = true)
     public ResponseEntity<TopicoResponse> atualizar(@PathVariable Long id,
                                              @RequestBody @Valid AtualizacaoTopicoRequest topicoRequest) {
         Optional<Topico> opt = repository.findById(id);
@@ -85,6 +91,7 @@ public class TopicosController {
 
     @DeleteMapping("/{id}")
     @Transactional
+    @CacheEvict(value = CacheId.LISTA_DE_TOPICOS, allEntries = true)
     public ResponseEntity<Void> remover(@PathVariable Long id) {
         Optional<Topico> opt = repository.findById(id);
 
