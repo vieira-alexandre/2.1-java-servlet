@@ -1,13 +1,16 @@
 package br.com.alura.forum.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableWebSecurity
@@ -18,7 +21,14 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     private AutenticacaoService autenticacaoService;
 
     private static final String[] PUBLIC_GET = {"/topicos", "/topicos/*"};
-    private static final String[] AUTHENTICATED = {"/topicos", "/topicos/*"};
+    private static final String[] PUBLIC_POST = {"/auth"};
+    private static final String[] AUTHENTICATED = {};
+
+    @Override
+    @Bean
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
 
     //Configurações de Autenticacao
     @Override
@@ -34,9 +44,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
             .antMatchers(HttpMethod.GET, PUBLIC_GET).permitAll()
+            .antMatchers(HttpMethod.POST, PUBLIC_POST).permitAll()
             .anyRequest().authenticated()
         .and()
-            .formLogin();
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     //Configurações de recursos estáticos(js, css, imagens, etc)
