@@ -8,6 +8,10 @@ import br.com.alura.forum.modelo.entities.Topico;
 import br.com.alura.forum.modelo.repositories.CursoRepository;
 import br.com.alura.forum.modelo.repositories.TopicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -15,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -29,17 +32,19 @@ public class TopicosController {
     private CursoRepository cursoRepository;
 
     @GetMapping
-    public List<TopicoResponse> lista(String nomeCurso) {
-        System.out.println("Listar");
+    public Page<TopicoResponse> lista(@RequestParam(required = false) String nomeCurso,
+                                      @PageableDefault(sort = "dataCriacao", direction = Sort.Direction.DESC,
+                                              size = 5) Pageable paginacao) {
+
+        Page<Topico> topicos;
+
         if (nomeCurso == null) {
-            List<Topico> topicos = repository.findAll();
-            return TopicoResponse.converter(topicos);
+            topicos = repository.findAll(paginacao);
         } else {
-            List<Topico> topicos = repository.findByCurso_Nome(nomeCurso);
-            return TopicoResponse.converter(topicos);
+            topicos = repository.findByCurso_Nome(nomeCurso, paginacao);
         }
 
-
+        return TopicoResponse.converter(topicos);
     }
 
     @PostMapping
@@ -54,7 +59,6 @@ public class TopicosController {
 
     @GetMapping("/{id}")
     public ResponseEntity<DetalhesTopicoResponse> detalhar(@PathVariable Long id) {
-        System.out.println("Get");
         Optional<Topico> topico = repository.findById(id);
 
         if(topico.isPresent()) {

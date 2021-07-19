@@ -1,10 +1,9 @@
 package br.com.alura.forum.api.dto.response;
 
 import br.com.alura.forum.modelo.entities.Topico;
+import org.springframework.data.domain.Page;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class TopicoResponse {
     private Long id;
@@ -19,8 +18,8 @@ public class TopicoResponse {
         this.dataCriacao = topico.getDataCriacao();
     }
 
-    public static List<TopicoResponse> converter(List<Topico> list) {
-        return list.stream().map(TopicoResponse::new).collect(Collectors.toList());
+    public static Page<TopicoResponse> converter(Page<Topico> list) {
+        return list.map(TopicoResponse::new);
     }
 
     public Long getId() {

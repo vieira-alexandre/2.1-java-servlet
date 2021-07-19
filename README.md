@@ -22,3 +22,4 @@
 - PUT, DELETE e Status 404
 
 ### 2.7 - Spring Boot API REST: Segurança da API, Cache e Monitoramento
+- Paginação e Ordenação
