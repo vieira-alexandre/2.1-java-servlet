@@ -29,3 +29,5 @@
 - Monitoramento com Spring Boot Actuator
 - Spring Boot Admin
 - Documentação com Swagger / SpringFox
+
+### 2.8 - Spring Boot e Teste: Profiles, Testes e Deploy
