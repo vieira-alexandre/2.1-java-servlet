@@ -28,3 +28,4 @@
 - Autenticacao via Token com JWT
 - Monitoramento com Spring Boot Actuator
 - Spring Boot Admin
+- Documentação com Swagger / SpringFox

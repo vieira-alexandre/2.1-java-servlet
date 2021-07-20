@@ -30,7 +30,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     private static final String[] PUBLIC_GET = {"/topicos", "/topicos/*", "/actuator/**"};
     private static final String[] PUBLIC_POST = {"/auth"};
-    private static final String[] AUTHENTICATED = {};
+    private static final String[] IGNORE = {"/**.html", "/v2/api-docs", "/webjars/**", "/configuration/**",
+            "/swagger-resources/**"};
 
     @Override
     @Bean
@@ -63,6 +64,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-
+        web.ignoring().antMatchers(IGNORE);
     }
 }
