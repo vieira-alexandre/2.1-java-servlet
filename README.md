@@ -25,4 +25,4 @@
 - Paginação e Ordenação
 - Spring Cache
 - Spring Security, Autorização de Endpoints, Autenticação via FormLogin
-- Token com JWT
+- Autenticacao via Token com JWT
