@@ -28,7 +28,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    private static final String[] PUBLIC_GET = {"/topicos", "/topicos/*"};
+    private static final String[] PUBLIC_GET = {"/topicos", "/topicos/*", "/actuator/**"};
     private static final String[] PUBLIC_POST = {"/auth"};
     private static final String[] AUTHENTICATED = {};
 

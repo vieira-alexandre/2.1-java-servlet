@@ -26,3 +26,5 @@
 - Spring Cache
 - Spring Security, Autorização de Endpoints, Autenticação via FormLogin
 - Autenticacao via Token com JWT
+- Monitoramento com Spring Boot Actuator
+- Spring Boot Admin
