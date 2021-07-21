@@ -34,3 +34,4 @@
 - Mais segurança: Roles
 - Atualizando o Spring Boot
 - Profiles
+- Testes Automatizados com Spring Boot
