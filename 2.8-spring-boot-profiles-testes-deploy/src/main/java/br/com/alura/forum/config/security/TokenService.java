@@ -3,6 +3,7 @@ package br.com.alura.forum.config.security;
 import br.com.alura.forum.modelo.entities.Usuario;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import java.time.Instant;
 import java.util.Date;
 
 @Service
+@Profile({"prod", "test"})
 public class TokenService {
 
     @Value("${forum.jwt.expiration}")

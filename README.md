@@ -31,3 +31,6 @@
 - Documentação com Swagger / SpringFox
 
 ### 2.8 - Spring Boot e Teste: Profiles, Testes e Deploy
+- Mais segurança: Roles
+- Atualizando o Spring Boot
+- Profiles

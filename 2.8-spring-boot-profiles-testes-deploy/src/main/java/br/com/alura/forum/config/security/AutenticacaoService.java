@@ -3,6 +3,7 @@ package br.com.alura.forum.config.security;
 import br.com.alura.forum.modelo.entities.Usuario;
 import br.com.alura.forum.modelo.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@Profile({"test", "prod"})
 public class AutenticacaoService implements UserDetailsService {
 
     @Autowired
