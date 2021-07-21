@@ -34,10 +34,8 @@ public class AutenticacaoController {
     private UsuarioRepository usuarioRepository;
 
     @PostMapping
-    public ResponseEntity<?> autenticar(@RequestBody @Valid CredenciaisRequest request) {
+    public ResponseEntity<JwtResponse> autenticar(@RequestBody @Valid CredenciaisRequest request) {
         Usuario usuario = usuarioRepository.findByEmail(request.getEmail()).orElse(null);
-
-        System.out.println(usuario);
 
         try {
             UsernamePasswordAuthenticationToken dadosLogin = request.toUPAToken();

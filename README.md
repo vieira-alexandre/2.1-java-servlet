@@ -35,3 +35,4 @@
 - Atualizando o Spring Boot
 - Profiles
 - Testes Automatizados com Spring Boot
+- Deploy com Maven, Docker e Heroku

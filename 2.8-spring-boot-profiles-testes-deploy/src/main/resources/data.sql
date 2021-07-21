@@ -1,4 +1,4 @@
-INSERT INTO USUARIO(nome, email, senha) VALUES('Aluno', 'aluno@email.com', '$2a$10$fdz.3Grjn86HR4gxU653HOrppszV5t6PD8myMeOCDA40qdh8k9jae'); !--BCRYPT SENHA = 123456
+INSERT INTO USUARIO(nome, email, senha) VALUES('Aluno', 'aluno@email.com', '$2a$10$fdz.3Grjn86HR4gxU653HOrppszV5t6PD8myMeOCDA40qdh8k9jae'); /* BCRYPT SENHA = 123456 */
 
 INSERT INTO CURSO(nome, categoria) VALUES('Spring Boot', 'Programação');
 INSERT INTO CURSO(nome, categoria) VALUES('HTML 5', 'Front-end');
