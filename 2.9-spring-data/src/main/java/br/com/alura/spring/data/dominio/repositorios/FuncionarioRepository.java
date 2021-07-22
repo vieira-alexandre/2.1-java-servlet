@@ -1,6 +1,6 @@
-package br.com.alura.spring.data.dominio.repositories;
+package br.com.alura.spring.data.dominio.repositorios;
 
-import br.com.alura.spring.data.dominio.model.Funcionario;
+import br.com.alura.spring.data.dominio.entidades.Funcionario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -20,4 +20,7 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Integ
 
     @Query(nativeQuery = true, value = "SELECT * FROM funcionario f WHERE f.data_contratacao >= :data")
     List<Funcionario> buscarDataContratacaoMaior(LocalDate data);
+
+    @Query(value = "SELETC f.id, f.nome, f.salario FROM funcionario f", nativeQuery = true)
+    List<Funcionario> buscaFuncionarioSalario();
 }

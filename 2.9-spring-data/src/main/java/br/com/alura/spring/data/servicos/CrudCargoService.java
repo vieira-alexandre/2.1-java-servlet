@@ -1,7 +1,7 @@
-package br.com.alura.spring.data.dominio.services;
+package br.com.alura.spring.data.servicos;
 
-import br.com.alura.spring.data.dominio.model.Cargo;
-import br.com.alura.spring.data.dominio.repositories.CargoRepository;
+import br.com.alura.spring.data.dominio.entidades.Cargo;
+import br.com.alura.spring.data.dominio.repositorios.CargoRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

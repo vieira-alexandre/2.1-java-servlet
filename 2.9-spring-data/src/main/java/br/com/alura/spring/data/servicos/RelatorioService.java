@@ -1,7 +1,7 @@
-package br.com.alura.spring.data.dominio.services;
+package br.com.alura.spring.data.servicos;
 
-import br.com.alura.spring.data.dominio.model.Funcionario;
-import br.com.alura.spring.data.dominio.repositories.FuncionarioRepository;
+import br.com.alura.spring.data.dominio.entidades.Funcionario;
+import br.com.alura.spring.data.dominio.repositorios.FuncionarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

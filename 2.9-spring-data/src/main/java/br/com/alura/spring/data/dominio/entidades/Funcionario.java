@@ -1,4 +1,4 @@
-package br.com.alura.spring.data.dominio.model;
+package br.com.alura.spring.data.dominio.entidades;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

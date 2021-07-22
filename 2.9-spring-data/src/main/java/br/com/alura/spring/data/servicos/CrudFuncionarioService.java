@@ -1,11 +1,11 @@
-package br.com.alura.spring.data.dominio.services;
+package br.com.alura.spring.data.servicos;
 
-import br.com.alura.spring.data.dominio.model.Cargo;
-import br.com.alura.spring.data.dominio.model.Funcionario;
-import br.com.alura.spring.data.dominio.model.UnidadeTrabalho;
-import br.com.alura.spring.data.dominio.repositories.CargoRepository;
-import br.com.alura.spring.data.dominio.repositories.FuncionarioRepository;
-import br.com.alura.spring.data.dominio.repositories.UnidadeTrabalhoRepository;
+import br.com.alura.spring.data.dominio.entidades.Cargo;
+import br.com.alura.spring.data.dominio.entidades.Funcionario;
+import br.com.alura.spring.data.dominio.entidades.UnidadeTrabalho;
+import br.com.alura.spring.data.dominio.repositorios.CargoRepository;
+import br.com.alura.spring.data.dominio.repositorios.FuncionarioRepository;
+import br.com.alura.spring.data.dominio.repositorios.UnidadeTrabalhoRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

@@ -1,6 +1,6 @@
-package br.com.alura.spring.data.dominio.repositories;
+package br.com.alura.spring.data.dominio.repositorios;
 
-import br.com.alura.spring.data.dominio.model.Cargo;
+import br.com.alura.spring.data.dominio.entidades.Cargo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

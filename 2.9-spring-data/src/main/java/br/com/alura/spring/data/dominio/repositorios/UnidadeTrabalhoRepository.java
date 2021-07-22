@@ -1,6 +1,6 @@
-package br.com.alura.spring.data.dominio.repositories;
+package br.com.alura.spring.data.dominio.repositorios;
 
-import br.com.alura.spring.data.dominio.model.UnidadeTrabalho;
+import br.com.alura.spring.data.dominio.entidades.UnidadeTrabalho;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

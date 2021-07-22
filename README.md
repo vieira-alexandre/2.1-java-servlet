@@ -39,3 +39,4 @@
 
 ### 2.9 - Spring Data JPA: Repositories, Consultas, Projeções e Specifications
 - CrudRepository
+- Derived Queries, Native Queries e JPQL

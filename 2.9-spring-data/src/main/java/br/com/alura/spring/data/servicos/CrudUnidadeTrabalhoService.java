@@ -1,7 +1,7 @@
-package br.com.alura.spring.data.dominio.services;
+package br.com.alura.spring.data.servicos;
 
-import br.com.alura.spring.data.dominio.model.UnidadeTrabalho;
-import br.com.alura.spring.data.dominio.repositories.UnidadeTrabalhoRepository;
+import br.com.alura.spring.data.dominio.entidades.UnidadeTrabalho;
+import br.com.alura.spring.data.dominio.repositorios.UnidadeTrabalhoRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
