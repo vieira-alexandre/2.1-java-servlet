@@ -36,3 +36,5 @@
 - Profiles
 - Testes Automatizados com Spring Boot
 - Deploy com Maven, Docker e Heroku
+
+### 2.9 - Spring Data JPA: Repositories, Consultas, Projeções e Specifications
