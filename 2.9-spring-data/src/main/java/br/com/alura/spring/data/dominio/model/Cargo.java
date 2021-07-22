@@ -1,9 +1,9 @@
 package br.com.alura.spring.data.dominio.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "cargos")
 public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +24,26 @@ public class Cargo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "Cargo{" +
+                "id=" + id +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cargo cargo = (Cargo) o;
+        return Objects.equals(id, cargo.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
