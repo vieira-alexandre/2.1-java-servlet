@@ -95,6 +95,7 @@ public class CrudCargoService {
 
     }
 
+    @Transactional
     private void excluir(Scanner sc) {
         System.out.println("Id ou nome do cargo:");
         boolean isNumero = false;

@@ -62,9 +62,6 @@ public class CrudUnidadeTrabalhoService {
                 System.out.println("\n");
             }
         } while (system);
-
-
-
     }
 
     private void detalhar(Scanner sc) {
@@ -98,6 +95,7 @@ public class CrudUnidadeTrabalhoService {
 
     }
 
+    @Transactional
     private void excluir(Scanner sc) {
         System.out.println("Id ou nome da Unidade:");
         boolean isNumero = false;

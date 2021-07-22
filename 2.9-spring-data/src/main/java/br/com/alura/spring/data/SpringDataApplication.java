@@ -3,6 +3,7 @@ package br.com.alura.spring.data;
 import br.com.alura.spring.data.dominio.services.CrudCargoService;
 import br.com.alura.spring.data.dominio.services.CrudFuncionarioService;
 import br.com.alura.spring.data.dominio.services.CrudUnidadeTrabalhoService;
+import br.com.alura.spring.data.dominio.services.RelatorioService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,11 +19,13 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudUnidadeTrabalhoService crudUnidadeTrabalhoService;
 	private final CrudFuncionarioService crudFuncionarioService;
 	private static ConfigurableApplicationContext ctx;
+	private final RelatorioService relatorioService;
 
-	public SpringDataApplication(CrudCargoService crudCargoService, CrudUnidadeTrabalhoService crudUnidadeTrabalhoService, CrudFuncionarioService crudFuncionarioService) {
+	public SpringDataApplication(CrudCargoService crudCargoService, CrudUnidadeTrabalhoService crudUnidadeTrabalhoService, CrudFuncionarioService crudFuncionarioService, RelatorioService relatorioService) {
 		this.crudCargoService = crudCargoService;
 		this.crudUnidadeTrabalhoService = crudUnidadeTrabalhoService;
 		this.crudFuncionarioService = crudFuncionarioService;
+		this.relatorioService = relatorioService;
 	}
 
 	public static void main(String[] args) {
@@ -41,6 +44,7 @@ public class SpringDataApplication implements CommandLineRunner {
 			System.out.println("1 - Cargos");
 			System.out.println("2 - Unidade de trabalho");
 			System.out.println("3 - Funcionarios");
+			System.out.println("4 - Relatórios");
 			System.out.println("0 - Sair");
 			action = sc.nextInt();
 			System.out.println(action);
@@ -59,11 +63,18 @@ public class SpringDataApplication implements CommandLineRunner {
 					crudFuncionarioService.inicial(sc);
 					break;
 
+				case 4:
+					relatorioService.inicial(sc);
+					break;
+
 				default:
 					system = false;
 					break;
 			}
 		} while (system);
+
+
+
 		sc.close();
 		System.exit(0);
 	}
