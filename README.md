@@ -47,3 +47,4 @@
 - Coesão e SRP: Single Responsibility Principle
 - Acoplamento e estabilidade
 - OCP e DIP: Open Closed e Dependency Inversion Principles
+- Encapsulamento
