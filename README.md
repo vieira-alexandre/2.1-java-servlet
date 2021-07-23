@@ -48,3 +48,4 @@
 - Acoplamento e estabilidade
 - OCP e DIP: Open Closed e Dependency Inversion Principles
 - Encapsulamento
+- Herança, Composição e LSP: Liskov Substitutive Principles
