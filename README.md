@@ -44,5 +44,6 @@
 - Specifications
 
 ### 2.10 - SOLID
-- Coesão e SRP (Single Responsibility Principle)
+- Coesão e SRP: Single Responsibility Principle
 - Acoplamento e estabilidade
+- OCP e DIP: Open Closed e Dependency Inversion Principles
