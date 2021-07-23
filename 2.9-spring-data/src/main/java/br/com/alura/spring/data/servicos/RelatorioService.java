@@ -1,6 +1,7 @@
 package br.com.alura.spring.data.servicos;
 
 import br.com.alura.spring.data.dominio.entidades.Funcionario;
+import br.com.alura.spring.data.dominio.projecoes.FuncionarioProjecao;
 import br.com.alura.spring.data.dominio.repositorios.FuncionarioRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ public class RelatorioService {
         do {
             System.out.println("Menu de relatórios\n=======================");
             System.out.println("1 - Funcionario por data de contratacao");
+            System.out.println("2 - Funcionario com salarios");
             System.out.println("0 - Sair");
             action = sc.nextInt();
             sc.nextLine();
@@ -31,6 +33,10 @@ public class RelatorioService {
             switch (action) {
                 case 1:
                     buscaFuncionarioPorDataContratacao(sc);
+                    break;
+
+                case 2:
+                    listaFuncionarioPorSalario(sc);
                     break;
 
                 default:
@@ -44,6 +50,19 @@ public class RelatorioService {
                 System.out.println("\n");
             }
         } while (system);
+    }
+
+    private void listaFuncionarioPorSalario(Scanner sc) {
+        List<FuncionarioProjecao> lista = repository.listaFuncionarioSalario();
+        System.out.println("Lista de funcionarios com seus salarios\n=========================================");
+
+
+
+        lista.forEach(x -> {
+            System.out.printf("Funcionario{id=%d, nome=\'%s\', salario=%.2f}\n", x.getId(), x.getNome(), x.getSalario());
+        });
+
+        System.out.println("\n");
     }
 
     public void buscaFuncionarioPorDataContratacao(Scanner sc) {

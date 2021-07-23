@@ -114,7 +114,7 @@ public class CrudFuncionarioService {
 
     @Transactional
     private void excluir(Scanner sc) {
-        System.out.println("Id ou nome do cargo:");
+        System.out.println("Id ou nome do funcionario:");
         boolean isNumero = false;
         Integer id = null;
         Optional<Funcionario> opt = null;
