@@ -44,4 +44,4 @@
 - Specifications
 
 ### 2.10 - SOLID
-- Coesão SRP (Single Responsibility Principle)
+- Coesão e SRP (Single Responsibility Principle)

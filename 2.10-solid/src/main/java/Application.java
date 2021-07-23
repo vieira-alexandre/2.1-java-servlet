@@ -9,9 +9,6 @@ public class Application {
         funci.setCargo(Cargo.DESENVOLVEDOR);
         funci.setSalarioBase(1000);
 
-        CalculadoraDeSalario calc = new CalculadoraDeSalario();
-
-
-        System.out.printf("Salario: %.2f\n", calc.calcula(funci));
+        System.out.printf("Salario: %.2f\n", funci.calculaSalario());
     }
 }
