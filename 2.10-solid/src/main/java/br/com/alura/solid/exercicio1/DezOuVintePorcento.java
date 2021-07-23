@@ -1,3 +1,5 @@
+package br.com.alura.solid.exercicio1;
+
 public class DezOuVintePorcento implements RegraDeCalculo {
 
     @Override

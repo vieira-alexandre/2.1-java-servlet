@@ -45,3 +45,4 @@
 
 ### 2.10 - SOLID
 - Coesão e SRP (Single Responsibility Principle)
+- Acoplamento e estabilidade

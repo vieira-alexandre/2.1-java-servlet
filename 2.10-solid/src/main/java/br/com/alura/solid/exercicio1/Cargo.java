@@ -1,3 +1,5 @@
+package br.com.alura.solid.exercicio1;
+
 public enum Cargo {
     DESENVOLVEDOR(new DezOuVintePorcento()),
     DBA(new QuinzeOuVinceECincoPorcento()),

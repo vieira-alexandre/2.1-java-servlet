@@ -1,6 +1,8 @@
+package br.com.alura.solid.exercicio1;
+
 import java.time.LocalDate;
 
-public class Application {
+public class Exercicio1 {
     public static void main(String[] args) {
         Funcionario funci = new Funcionario();
         funci.setId(1);

@@ -1,5 +1,6 @@
+package br.com.alura.solid.exercicio1;
+
 import java.time.LocalDate;
-import java.util.Calendar;
 
 public class Funcionario {
 
