@@ -42,3 +42,6 @@
 - Derived Queries, Native Queries e JPQL
 - Projeções
 - Specifications
+
+### 2.10 - SOLID
+- Coesão SRP (Single Responsibility Principle)
