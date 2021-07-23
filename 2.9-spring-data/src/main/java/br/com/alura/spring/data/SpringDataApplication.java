@@ -1,9 +1,6 @@
 package br.com.alura.spring.data;
 
-import br.com.alura.spring.data.servicos.CrudCargoService;
-import br.com.alura.spring.data.servicos.CrudFuncionarioService;
-import br.com.alura.spring.data.servicos.CrudUnidadeTrabalhoService;
-import br.com.alura.spring.data.servicos.RelatorioService;
+import br.com.alura.spring.data.servicos.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,15 +17,18 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudFuncionarioService crudFuncionarioService;
 	private final RelatorioService relatorioService;
 	private static ConfigurableApplicationContext ctx;
+	private final RelatorioDinamicoService relatorioDinamicoService;
 
 	public SpringDataApplication(CrudCargoService crudCargoService,
 								 CrudUnidadeTrabalhoService crudUnidadeTrabalhoService,
 								 CrudFuncionarioService crudFuncionarioService,
-								 RelatorioService relatorioService) {
+								 RelatorioService relatorioService,
+								 RelatorioDinamicoService relatorioDinamicoService) {
 		this.crudCargoService = crudCargoService;
 		this.crudUnidadeTrabalhoService = crudUnidadeTrabalhoService;
 		this.crudFuncionarioService = crudFuncionarioService;
 		this.relatorioService = relatorioService;
+		this.relatorioDinamicoService = relatorioDinamicoService;
 	}
 
 	public static void main(String[] args) {
@@ -48,6 +48,7 @@ public class SpringDataApplication implements CommandLineRunner {
 			System.out.println("2 - Unidade de trabalho");
 			System.out.println("3 - Funcionarios");
 			System.out.println("4 - Relatórios");
+			System.out.println("5 - Relatório dinamico");
 			System.out.println("0 - Sair");
 			action = sc.nextInt();
 			System.out.println(action);
@@ -68,6 +69,10 @@ public class SpringDataApplication implements CommandLineRunner {
 
 				case 4:
 					relatorioService.inicial(sc);
+					break;
+
+				case 5:
+					relatorioDinamicoService.inicial(sc);
 					break;
 
 				default:

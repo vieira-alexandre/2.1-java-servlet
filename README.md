@@ -41,3 +41,4 @@
 - CrudRepository
 - Derived Queries, Native Queries e JPQL
 - Projeções
+- Specifications

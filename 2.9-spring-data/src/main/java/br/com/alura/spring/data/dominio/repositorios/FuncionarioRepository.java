@@ -2,6 +2,7 @@ package br.com.alura.spring.data.dominio.repositorios;
 
 import br.com.alura.spring.data.dominio.entidades.Funcionario;
 import br.com.alura.spring.data.dominio.projecoes.FuncionarioProjecao;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface FuncionarioRepository extends CrudRepository<Funcionario, Integer> {
+public interface FuncionarioRepository extends CrudRepository<Funcionario, Integer>, JpaSpecificationExecutor<Funcionario> {
     Optional<Funcionario> findByCpf(String cpf);
 
     Optional<Funcionario> findByNome(String nome);
