@@ -49,3 +49,6 @@
 - OCP e DIP: Open Closed e Dependency Inversion Principles
 - Encapsulamento
 - Herança, Composição e LSP: Liskov Substitutive Principles
+
+### 3.1 - Testes e Java: Test Driven Development com JUnit
+ - Começando com testes unitários
