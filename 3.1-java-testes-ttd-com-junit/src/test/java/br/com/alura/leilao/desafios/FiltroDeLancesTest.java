@@ -13,7 +13,7 @@ public class FiltroDeLancesTest {
 
     @Test
     public void deveSelecionarLancesEntre1000E3000() {
-        Usuario joao = new Usuario("Joao");
+        Usuario joao = new Usuario(1,"Joao");
 
         FiltroDeLances filtro = new FiltroDeLances();
         List<Lance> resultado = filtro.filtra(Arrays.asList(
@@ -32,7 +32,7 @@ public class FiltroDeLancesTest {
 
     @Test
     public void deveSelecionarLancesEntre500E700() {
-        Usuario joao = new Usuario("Joao");
+        Usuario joao = new Usuario(1,"Joao");
 
         FiltroDeLances filtro = new FiltroDeLances();
         List<Lance> resultado = filtro.filtra(Arrays.asList(
@@ -51,7 +51,7 @@ public class FiltroDeLancesTest {
 
     @Test
     public void deveSelecionarLancesMaiorQue5000() {
-        Usuario joao = new Usuario("Joao");
+        Usuario joao = new Usuario(1,"Joao");
 
         FiltroDeLances filtro = new FiltroDeLances();
         List<Lance> resultado = filtro.filtra(Arrays.asList(
@@ -72,7 +72,7 @@ public class FiltroDeLancesTest {
 
     @Test
     public void deveEliminarMenoresQue500() {
-        Usuario joao = new Usuario("Joao");
+        Usuario joao = new Usuario(1,"Joao");
 
         FiltroDeLances filtro = new FiltroDeLances();
         List<Lance> resultado = filtro.filtra(Arrays.asList(
@@ -84,7 +84,7 @@ public class FiltroDeLancesTest {
 
     @Test
     public void deveEliminarMenoresEntre700E1000() {
-        Usuario joao = new Usuario("Joao");
+        Usuario joao = new Usuario(1,"Joao");
 
         FiltroDeLances filtro = new FiltroDeLances();
         List<Lance> resultado = filtro.filtra(Arrays.asList(

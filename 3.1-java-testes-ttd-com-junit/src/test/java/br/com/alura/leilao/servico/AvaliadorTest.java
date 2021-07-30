@@ -14,9 +14,9 @@ public class AvaliadorTest {
     @Test
     public void deveVerificarLanceEmOrdemCrescente() {
         // cenario: 3 lances em ordem crescente
-        Usuario joao = new Usuario("Joao");
-        Usuario jose = new Usuario("José");
-        Usuario maria = new Usuario("Maria");
+        Usuario joao = new Usuario(1,"Joao");
+        Usuario jose = new Usuario(2,"José");
+        Usuario maria = new Usuario(3,"Maria");
 
         Leilao leilao = new Leilao("Playstation 3 Novo");
 
@@ -39,9 +39,9 @@ public class AvaliadorTest {
 
     @Test
     public void deveVerificarLanceEmOrdemAleatoria() {
-        Usuario joao = new Usuario("Joao");
-        Usuario jose = new Usuario("José");
-        Usuario maria = new Usuario("Maria");
+        Usuario joao = new Usuario(1,"Joao");
+        Usuario jose = new Usuario(2,"José");
+        Usuario maria = new Usuario(3,"Maria");
         double lance1 = 200;
         double lance2 = 450;
         double lance3 = 120;
@@ -70,9 +70,9 @@ public class AvaliadorTest {
 
     @Test
     public void deveVerificarLanceEmOrdemDecrescente() {
-        Usuario joao = new Usuario("Joao");
-        Usuario jose = new Usuario("José");
-        Usuario maria = new Usuario("Maria");
+        Usuario joao = new Usuario(1,"Joao");
+        Usuario jose = new Usuario(2,"José");
+        Usuario maria = new Usuario(3,"Maria");
         double lance1 = 400;
         double lance2 = 300;
         double lance3 = 200;
@@ -97,7 +97,7 @@ public class AvaliadorTest {
 
     @Test
     public void deveVerificarLeilaoComApenasUmLance() {
-        Usuario joao = new Usuario("Joao");
+        Usuario joao = new Usuario(1,"Joao");
         Leilao leilao = new Leilao("Playstation 3 Novo");
         leilao.propoe(new Lance(joao, 1000));
 
@@ -115,9 +115,9 @@ public class AvaliadorTest {
 
     @Test
     public void deveEncontrarOsTresMaioresLances() {
-        Usuario joao = new Usuario("Joao");
-        Usuario jose = new Usuario("José");
-        Usuario maria = new Usuario("Maria");
+        Usuario joao = new Usuario(1,"Joao");
+        Usuario jose = new Usuario(2,"José");
+        Usuario maria = new Usuario(3,"Maria");
         double lance1 = 450;
         double lance2 = 500;
         double lance3 = 600;
@@ -145,9 +145,9 @@ public class AvaliadorTest {
 
     @Test
     public void deveEncontrarOsTresMaioresLancesEmOrdemCrescenteAleatoria() {
-        Usuario joao = new Usuario("Joao");
-        Usuario jose = new Usuario("José");
-        Usuario maria = new Usuario("Maria");
+        Usuario joao = new Usuario(1,"Joao");
+        Usuario jose = new Usuario(2,"José");
+        Usuario maria = new Usuario(3,"Maria");
         double lance1 = 200;
         double lance2 = 450;
         double lance3 = 120;
