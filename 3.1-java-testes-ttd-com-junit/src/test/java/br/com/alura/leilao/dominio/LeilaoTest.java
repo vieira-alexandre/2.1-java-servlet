@@ -1,11 +1,14 @@
 package br.com.alura.leilao.dominio;
 
 import br.com.alura.leilao.builder.LeilaoBuilder;
+import br.com.alura.leilao.desafios.MyMatcher;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 public class LeilaoTest {
@@ -28,7 +31,7 @@ public class LeilaoTest {
         assertEquals(0, leilao.getLances().size());
 
         leilao.propoe(new Lance(jobs, 2000));
-        assertEquals(1, leilao.getLances().size());
+        assertThat(leilao.getLances().size(), equalTo(1));
     }
 
     @Test
@@ -42,10 +45,10 @@ public class LeilaoTest {
 
         List<Lance> lista = leilao.getLances();
 
-        assertEquals(3, lista.size());
-        assertEquals(2000.0, lista.get(0).getValor(), 0.00001);
-        assertEquals(4000.0, lista.get(1).getValor(), 0.00001);
-        assertEquals(3000.0, lista.get(2).getValor(), 0.00001);
+        assertThat(lista.size(), equalTo(3));
+        assertThat(lista.get(0).getValor(), equalTo(2000.0));
+        assertThat(lista.get(1).getValor(), equalTo(4000.0));
+        assertThat(lista.get(2).getValor(), equalTo(3000.0));
     }
 
     @Test
@@ -59,10 +62,10 @@ public class LeilaoTest {
 
         List<Lance> lista = leilao.getLances();
 
-        assertEquals(3, lista.size());
-        assertEquals(2000.0, lista.get(0).getValor(), 0.00001);
-        assertEquals(3000.0, lista.get(1).getValor(), 0.00001);
-        assertEquals(4000.0, lista.get(2).getValor(), 0.00001);
+        assertThat(lista.size(), equalTo(3));
+        assertThat(lista.get(0).getValor(), equalTo(2000.0));
+        assertThat(lista.get(1).getValor(), equalTo(3000.0));
+        assertThat(lista.get(2).getValor(), equalTo(4000.0));
     }
 
     @Test
@@ -90,8 +93,8 @@ public class LeilaoTest {
 
         List<Lance> lista = leilao.getLances();
 
-        assertEquals(nLances, lista.size());
-        assertEquals(ultimoLance, lista.get(lista.size() - 1).getValor(), 0.00001);
+        assertThat(lista.size(), equalTo(nLances));
+        assertThat(lista.get(lista.size()-1).getValor(), equalTo(ultimoLance));
     }
 
     @Test
@@ -108,8 +111,8 @@ public class LeilaoTest {
 
         List<Lance> lista = leilao.getLances();
 
-        assertEquals(6, lista.size());
-        assertEquals(4000.0, lista.get(5).getValor(), 0.00001);
+        assertThat(lista.size(), equalTo(6));
+        assertThat(lista.get(5).getValor(), equalTo(4000.00));
     }
 
     @Test
@@ -125,8 +128,19 @@ public class LeilaoTest {
 
         List<Lance> lista = leilao.getLances();
 
-        assertEquals(4, lista.size());
-        assertEquals(2000.0, lista.get(3).getValor(), 0.00001);
+        assertThat(lista.size(), equalTo(4));
+        assertThat(lista.get(3).getValor(), equalTo(2000.00));
     }
 
+    @Test
+    public void testeSeTemUmLance() {
+        Leilao leilao = new LeilaoBuilder().para("Macbook Pro 15")
+                .lance(jobs, 500)
+                .lance(woz, 1000)
+                .lance(jobs, 1500)
+                .lance(woz, 2000)
+                .build();
+
+        assertThat(leilao, MyMatcher.temUmLance(new Lance(jobs, 500)));
+    }
 }
