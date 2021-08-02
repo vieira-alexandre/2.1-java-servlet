@@ -1,5 +1,7 @@
 package br.com.alura.leilao.dominio;
 
+import br.com.alura.leilao.builder.LeilaoBuilder;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -8,23 +10,35 @@ import static org.junit.Assert.assertEquals;
 
 public class LeilaoTest {
 
+    private Usuario jobs;
+    private Usuario woz;
+    private Usuario sculley;
+
+    @Before
+    public void setUp() {
+        this.jobs = new Usuario(1, "Steve Jobs");
+        this.woz = new Usuario(2, "Steve Wozniak");
+        this.sculley = new Usuario(3, "John Sculley");
+    }
+
+
     @Test
     public void deveReceberUmLance() {
-        Leilao leilao = new Leilao("Macbook Pro 15");
+        Leilao leilao = new LeilaoBuilder().para("Macbook Pro 15").build();
         assertEquals(0, leilao.getLances().size());
 
-        leilao.propoe(new Lance(new Usuario("Joao"), 2000));
+        leilao.propoe(new Lance(jobs, 2000));
         assertEquals(1, leilao.getLances().size());
     }
 
     @Test
     public void deveReceberVariosLances() {
-        Leilao leilao = new Leilao("Macbook Pro 15");
-        assertEquals(0, leilao.getLances().size());
+        Leilao leilao = new LeilaoBuilder().para("Macbook Pro 15")
+                .lance(jobs, 2000)
+                .lance(woz, 4000)
+                .lance(sculley, 3000)
+                .build();
 
-        leilao.propoe(new Lance(new Usuario(1, "Steve Jobs"), 2000));
-        leilao.propoe(new Lance(new Usuario(2, "Steve Wozniak"), 4000));
-        leilao.propoe(new Lance(new Usuario(3, "John Sculley"), 3000));
 
         List<Lance> lista = leilao.getLances();
 
@@ -36,17 +50,12 @@ public class LeilaoTest {
 
     @Test
     public void naoDeveAceitarDoisLancesSeguidosDoMesmoUsuario() {
-        Leilao leilao = new Leilao("Macbook Pro 15");
-        assertEquals(0, leilao.getLances().size());
-
-        Usuario jobs = new Usuario(1, "Steve Jobs");
-        Usuario woz = new Usuario(2, "Steve Wozniak");
-        Usuario sculley = new Usuario(3, "John Sculley");
-
-        leilao.propoe(new Lance(jobs, 2000));
-        leilao.propoe(new Lance(sculley, 3000));
-        leilao.propoe(new Lance(woz, 4000));
-        leilao.propoe(new Lance(woz, 5000));
+        Leilao leilao = new LeilaoBuilder().para("Macbook Pro 15")
+                .lance(jobs, 2000)
+                .lance(sculley, 3000)
+                .lance(woz, 4000)
+                .lance(woz, 5000)
+                .build();
 
         List<Lance> lista = leilao.getLances();
 
@@ -61,15 +70,12 @@ public class LeilaoTest {
         Leilao leilao = new Leilao("Macbook Pro 15");
         assertEquals(0, leilao.getLances().size());
 
-        Usuario jobs = new Usuario(1, "Steve Jobs");
-        Usuario woz = new Usuario(2, "Steve Wozniak");
-
         long limiteDeLances = leilao.getLimiteLances();
         double ultimoLance = 0;
         int nLances = 0;
 
 
-        for(int i = 1; i <= limiteDeLances * 2; i++){
+        for (int i = 1; i <= limiteDeLances * 2; i++) {
             double valorLance = i * 1000;
             Lance lance = new Lance(i % 2 == 0 ? woz : jobs, valorLance);
             leilao.propoe(lance);
@@ -90,18 +96,13 @@ public class LeilaoTest {
 
     @Test
     public void deveDobrarUltimoLanceDoUsuario() {
-        Leilao leilao = new Leilao("Macbook Pro 15");
-        assertEquals(0, leilao.getLances().size());
-
-        Usuario jobs = new Usuario(1, "Steve Jobs");
-        Usuario woz = new Usuario(2, "Steve Wozniak");
-
-        leilao.propoe(new Lance(jobs, 500));
-        leilao.propoe(new Lance(woz, 1000));
-        leilao.propoe(new Lance(jobs, 1500));
-        leilao.propoe(new Lance(woz, 2000));
-        leilao.propoe(new Lance(jobs, 3000));
-
+        Leilao leilao = new LeilaoBuilder().para("Macbook Pro 15")
+                .lance(jobs, 500)
+                .lance(woz, 1000)
+                .lance(jobs, 1500)
+                .lance(woz, 2000)
+                .lance(jobs, 3000)
+                .build();
 
         leilao.dobraLance(woz);
 
@@ -113,18 +114,12 @@ public class LeilaoTest {
 
     @Test
     public void naoDeveDobrarSeNaoHouverLanceAnteriorDoUsuario() {
-        Leilao leilao = new Leilao("Macbook Pro 15");
-        assertEquals(0, leilao.getLances().size());
-
-        Usuario jobs = new Usuario(1, "Steve Jobs");
-        Usuario woz = new Usuario(2, "Steve Wozniak");
-        Usuario sculley = new Usuario(3, "John Sculley");
-
-        leilao.propoe(new Lance(jobs, 500));
-        leilao.propoe(new Lance(woz, 1000));
-        leilao.propoe(new Lance(jobs, 1500));
-        leilao.propoe(new Lance(woz, 2000));
-
+        Leilao leilao = new LeilaoBuilder().para("Macbook Pro 15")
+                .lance(jobs, 500)
+                .lance(woz, 1000)
+                .lance(jobs, 1500)
+                .lance(woz, 2000)
+                .build();
 
         leilao.dobraLance(sculley);
 
