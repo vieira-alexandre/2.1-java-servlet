@@ -65,3 +65,10 @@
  - Mocks que lançam exceções
  - Capturando argumentos recebidos pelo Mock
  - Isolando para testar
+
+### 4.2 - Kafka: Produtores, Consumidores e streams
+ - Produtores e consumidores
+ - Paralelizando tarefas em um serviço
+ - Criando camada própria
+ - Serialização customizada
+ - Microsserviços e módulos
