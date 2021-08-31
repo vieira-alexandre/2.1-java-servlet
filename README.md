@@ -52,3 +52,16 @@
 
 ### 3.1 - Testes e Java: Test Driven Development com JUnit
  - Começando com testes unitários
+ - Praticando o TDD
+ - Testanto exceções
+ - Hamcrest
+### 3.2 - Teste de Integração: Testes SQL e DAOs automatizados
+ - Testando inserções
+ - Consultas mais complexas
+ - Testando alteração e deleção
+### 3.3 - Mocks em Java: Testes de comportamentos automatizados
+ - Simulando comportamentos com Mock Objects
+ - Garantindo que métodos foram invocados
+ - Mocks que lançam exceções
+ - Capturando argumentos recebidos pelo Mock
+ - Isolando para testar
